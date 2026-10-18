@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machuca Abogados | Jura de Nacionalidad Española</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================
+           VARIABLES DE COLOR Y ESTILOS GLOBALES
+           ========================================== */
+        :root {
+            --color-primary: #093D51;    /* Azul Petróleo / Nuevo color global */
+            --color-secondary: #BE986E;  /* Beige / Secundario */
+            --color-accent: #B88A16;     /* Dorado / Énfasis */
+            --color-text: #000000;       /* Negro / Texto */
+            --color-white: #FFFFFF;      /* Blanco / Nuevo elemento #1 */
+            --color-bg-light: #F8F9FA;   /* Fondo claro complementario */
+            --color-gray-soft: #EFEFEF;  /* Gris suave para bordes y cards */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==========================================
+           COMPONENTES Y BOTONES
+           ========================================== */
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(184, 138, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #9d750f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(184, 138, 22, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-white);
+            padding: 12px 26px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            border: 2px solid var(--color-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .section-padding {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-accent);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           HEADER / NAVEGACIÓN (FONDO BLANCO)
+           ========================================== */
+        header {
+            background-color: var(--color-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--color-gray-soft);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .hero {
+            background: linear-gradient(rgba(9, 61, 81, 0.82), rgba(9, 61, 81, 0.88)), 
+                        url('hero-bandera.png') center/cover no-repeat;
+            color: var(--color-white);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--color-white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: var(--color-secondary);
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================
+           SECCIÓN: QUÉ ES LA JURA
+           ========================================== */
+        .que-es {
+            background-color: var(--color-white);
+        }
+
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .img-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border: 4px solid var(--color-secondary);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .img-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .content-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .content-block p {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box {
+            background-color: rgba(190, 152, 110, 0.15);
+            border-left: 4px solid var(--color-accent);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           SECCIÓN: CÓMO SE HACE (PASO A PASO)
+           ========================================== */
+        .como-se-hace {
+            background-color: var(--color-bg-light);
+        }
+
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--color-white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border-left: 5px solid var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateX(5px);
+            border-left-color: var(--color-accent);
+        }
+
+        .step-number {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           SECCIÓN: REQUISITOS
+           ========================================== */
+        .requisitos {
+            background-color: var(--color-white);
+        }
+
+        .req-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .req-cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .req-card {
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-gray-soft);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .req-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .req-card i {
+            font-size: 2.2rem;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .req-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .req-card p {
+            font-size: 0.88rem;
+            color: #666;
+        }
+
+        /* ==========================================
+           PREGUNTAS FRECUENTES (FAQS)
+           ========================================== */
+        .faqs {
+            background-color: var(--color-bg-light);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--color-gray-soft);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--color-accent);
+        }
+
+        /* ==========================================
+           FORMULARIO DE CONTACTO / CTA
+           ========================================== */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #062734 100%);
+            color: var(--color-white);
+        }
+
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--color-text);
+        }
+
+        .contact-wrapper h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .contact-wrapper p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #9d750f;
+        }
+
+        /* ==========================================
+           FOOTER CON LOGO
+           ========================================== */
+        footer {
+            background-color: #041d27;
+            color: var(--color-secondary);
+            padding: 50px 20px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--color-secondary);
+        }
+
+        .footer-logo {
+            background: var(--color-white);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            background: #20b858;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.9rem;
+            box-shadow: 0 8px 22px rgba(0,0,0,.22);
+            z-index: 1100;
+        }
+
+        .whatsapp-float:hover { background: #159447; }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 992px) {
+            .two-column-grid, 
+            .steps-wrapper, 
+            .req-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section-padding { padding: 56px 16px; }
+
+            .navbar { padding: 10px 16px; }
+            .brand-logo { height: 38px; }
+
+            .req-cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-wrapper {
+                padding: 25px 20px;
+            }
+
+            .hero { padding: 86px 16px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.05rem; }
+            .hero-buttons a { width: 100%; text-align: center; }
+            .step-card { padding: 18px; gap: 14px; }
+            .step-number { width: 38px; height: 38px; font-size: 1rem; }
+            .whatsapp-float { right: 16px; bottom: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (ENCABEZADO BLANCO) -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo-container" aria-label="Machuca Abogados, inicio">
+                <img src="logo.jpg.jpeg" alt="Machuca Abogados" class="brand-logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#que-es">¿Qué es?</a></li>
+                <li><a href="#como-se-hace">¿Cómo se hace?</a></li>
+                <li><a href="#requisitos">Requisitos</a></li>
+                <li><a href="#faqs">Preguntas Frecuentes</a></li>
+                <li><a href="#contacto" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem; color: var(--color-white);">Asesoría Legal</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>JURA DE NACIONALIDAD ESPAÑOLA</h1>
+            <p>El paso final para completar tu nacionalidad española. Te acompañamos con la revisión de documentos, la cita y la inscripción.</p>
+            <div class="hero-buttons">
+                <a href="#como-se-hace" class="btn-primary">Ver Pasos del Trámite</a>
+                <a href="#requisitos" class="btn-secondary">Consultar Requisitos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: QUÉ ES -->
+    <section id="que-es" class="section-padding que-es">
+        <div class="container">
+            <div class="two-column-grid">
+                <div class="content-block">
+                    <h2>¿Qué es la Jura de Nacionalidad Española?</h2>
+                    <p>La <strong>Jura o Promesa de Nacionalidad Española</strong> es el acto formal y solemne mediante el cual la persona extranjera a la que se le ha concedido la ciudadanía promete o jura fidelidad al Rey, obediencia a la Constitución y a las leyes españolas.</p>
+                    <p>Este procedimiento es un <strong>requisito imprescindible</strong> regulado por el Código Civil español. Sin la realización de este acto en el plazo legal establecido, la concesión de la nacionalidad queda sin efecto.</p>
+                    <div class="highlight-box">
+                        <i class="fa-solid fa-clock"></i> <strong>¡Plazo crucial!</strong> Dispones de un plazo máximo de <strong>180 días contados</strong> desde la notificación oficial de la concesión para realizar el acto de la jura.
+                    </div>
+                </div>
+                <div class="img-card">
+                    <img src="jura-registro.jpg" alt="Ministerio de Justicia y Registro Civil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: CÓMO SE HACE -->
+    <section id="como-se-hace" class="section-padding como-se-hace">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Cómo se realiza el trámite?</h2>
+                <p>Proceso paso a paso desde la resolución favorable hasta la obtención de tu DNI</p>
+            </div>
+            
+            <div class="steps-wrapper">
+                <div class="steps-list">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Notificación y Cita Previa</h4>
+                        <p>Tras recibir la resolución favorable, solicita la cita en el Registro Civil competente o ante una notaría, según la vía disponible para tu caso.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Revisión de Documentación</h4>
+                            <p>Presentación de tus documentos originales (pasaporte, antecedentes penales y certificado de nacimiento) para la verificación oficial del expediente.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Acto de la Jura o Promesa</h4>
+                            <p>Manifestación formal ante el Encargado del Registro o Notario, eligiendo jurar o prometer cumplir la Constitución y las Leyes.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Inscripción y Certificado</h4>
+                            <p>Se formaliza la inscripción de nacimiento en el Registro Civil español y se emite la Certificación Literaria de Nacimiento para DNI.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img-card">
+                    <img src="asesoria-jura.jpg" alt="Asesoría para Jura de Nacionalidad Española">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: REQUISITOS Y DOCUMENTACIÓN -->
+    <section id="requisitos" class="section-padding requisitos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Requisitos y Documentación</h2>
+                <p>Asegúrate de contar con todos estos documentos el día de tu cita de Jura</p>
+            </div>
+
+            <div class="req-grid">
+                <div class="img-card">
+                    <img src="documentos-jura.jpg" alt="Documentación requerida para Jura de Nacionalidad">
+                </div>
+
+                <div class="req-cards-container">
+                    <div class="req-card">
+                        <i class="fa-solid fa-file-contract"></i>
+                        <h4>Resolución Favorable</h4>
+                        <p>Copia de la resolución oficial de concesión de la nacionalidad remitida por el Ministerio de Justicia.</p>
+                    </div>
+
+                    <div class="req-card">
+                        <i class="fa-solid fa-passport"></i>
+                        <h4>Pasaporte Vigente</h4>
+                        <p>Pasaporte original de tu país de origen en vigor y tarjeta NIE en vigor o resguardo de renovación.</p>
+                    </div>
+
+                    <div class="req-card">
+                        <i class="fa-solid fa-house-user"></i>
+                        <h4>Padronal Actualizado</h4>
+                        <p>Certificado de empadronamiento actualizado con antigüedad no mayor a 3 meses del municipio correspondiente.</p>
+                    </div>
+
+                    <div class="req-card">
+                        <i class="fa-solid fa-certificate"></i>
+                        <h4>Certificados Originales</h4>
+                        <p>Certificado de nacimiento y antecedentes penales de tu país (los aportados al iniciar el expediente).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: FAQS -->
+    <section id="faqs" class="section-padding faqs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos las dudas habituales sobre el procedimiento de la Jura</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Puedo hacer la Jura ante un Notario?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, actualmente la ley permite realizar el acto de la Jura de Nacionalidad Española ante Notario, lo cual suele agilizar considerablemente los tiempos de espera respecto al Registro Civil público.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué diferencia hay entre Jurar y Prometer?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Jurídicamente ambas opciones tienen la misma validez legal. La diferencia es de índole religiosa: "Jurar" suele implicar una convicción religiosa, mientras que "Prometer" se fundamenta en un compromiso civil.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué ocurre si se me pasa el plazo de 180 días?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La concesión caduca a los 180 días siguientes a su notificación si no compareces ante funcionario competente para cumplir los requisitos legales. Conviene confirmar el cómputo y la cita según tu notificación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Debo renunciar a mi nacionalidad de origen?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Salvo que provengas de un país iberoamericano, Andorra, Filipinas, Guinea Ecuatorial o Portugal (o personas de origen sefardí), la ley española exige la renuncia formal a tu nacionalidad anterior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: CONTACTO / CONSULTA -->
+    <section id="contacto" class="section-padding contact-cta">
+        <div class="container">
+            <div class="contact-wrapper">
+                <h3>¿Necesitas ayuda legal con tu Jura?</h3>
+                <p>En Machuca Abogados te ayudamos a gestionar tu cita de Jura de forma rápida y sin complicaciones.</p>
+                <form onsubmit="event.preventDefault(); window.open('https://wa.me/34639214052?text=Hola,%20quiero%20asesor%C3%ADa%20sobre%20la%20jura%20de%20nacionalidad%20espa%C3%B1ola', '_blank');">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado del trámite</label>
+                        <select id="estado" required>
+                            <option value="" selected disabled>Selecciona una opción</option>
+                            <option value="concedido">Ya tengo resolución favorable</option>
+                            <option value="espera">Esperando resolución</option>
+                            <option value="cita">Busco cita en Registro Civil / Notaría</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Solicitar Asesoría Legal por WhatsApp</button>
+                </form>
+                <a class="btn-primary" style="width:100%;text-align:center;margin-top:12px;" href="https://agendalo.io/machucaabogados" target="_blank" rel="noopener">Agendar consulta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="logo.jpg.jpeg" alt="Machuca Abogados">
+            </div>
+            <p><strong>Machuca Abogados</strong> &copy; 2026 - Especialistas en Derecho de Extranjería y Nacionalidad Española.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Información general. Los requisitos pueden variar según el Registro Civil o la notaría competente.</p>
+        </div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/34639214052?text=Hola,%20quiero%20asesor%C3%ADa%20sobre%20la%20jura%20de%20nacionalidad%20espa%C3%B1ola" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT INTERACTIVO FAQS -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
